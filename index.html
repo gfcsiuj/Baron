@@ -1,73 +1,120 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>فندق البارون السياحي | Al-Baron Hotel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>فندق البارون - الرفاهية المطلقة</title>
+    <meta name="description" content="تجربة فندقية استثنائية في الموصل على ضفاف دجلة" />
+    <script>
+      // Suppress Tailwind CDN warning for cleaner console in production demos
+      const originalWarn = console.warn;
+      console.warn = (...args) => {
+          if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+          originalWarn.apply(console, args);
+      };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-    <style>
-      /* Modern Scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f5f9;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 5px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #94a3b8;
-      }
-      
-      /* Glass Utility */
-      .glass {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-      .glass-dark {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#1A1A1A', // Jet Black
+                900: '#000000',
+              },
+              gold: {
+                100: '#F9F1D8',
+                200: '#EAD6A3',
+                300: '#D4AF37', // Base Gold
+                400: '#AA8C2C',
+                500: '#80681D',
+                glass: 'rgba(212, 175, 55, 0.15)',
+              },
+              surface: {
+                50: '#F8F9FA',
+                100: '#F1F3F5',
+              }
+            },
             fontFamily: {
               sans: ['Cairo', 'sans-serif'],
             },
-            colors: {
-              gold: {
-                50: '#FFFAEB',
-                100: '#FCEFC7',
-                200: '#FAE3A3',
-                300: '#F7D070',
-                400: '#F3BD3D',
-                500: '#D99F16', // Base Gold
-                600: '#B8820B',
-                700: '#916307',
-                800: '#754E09',
-                900: '#613F0D',
-              },
-              dark: {
-                900: '#0F172A',
-                800: '#1E293B',
-              }
+            boxShadow: {
+              'luxury': '0 20px 40px -10px rgba(0, 0, 0, 0.15)',
+              'glow': '0 0 20px rgba(212, 175, 55, 0.3)',
+              'inner-light': 'inset 0 2px 4px 0 rgba(255, 255, 255, 0.3)',
             },
-            backgroundImage: {
-              'gold-gradient': 'linear-gradient(135deg, #F3BD3D 0%, #D99F16 100%)',
-              'gold-gradient-hover': 'linear-gradient(135deg, #F7D070 0%, #F3BD3D 100%)',
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'scale-in': 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(40px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              }
             }
-          },
-        },
+          }
+        }
       }
     </script>
-  <script type="importmap">
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: #F8F9FA;
+      }
+      /* Modern Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F1F3F5;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D4AF37;
+        border-radius: 10px;
+      }
+      
+      /* Global Smooth Transition */
+      *, *::before, *::after {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+
+      /* Glassmorphism Utilities */
+      .glass {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      .glass-dark {
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      
+      /* Smooth Image Loading */
+      img {
+        transition: transform 0.6s ease-out;
+      }
+    </style>
+     <script type="importmap">
 {
   "imports": {
     "react/": "https://esm.sh/react@^19.2.3/",
@@ -77,8 +124,9 @@
   }
 }
 </script>
-</head>
-  <body class="bg-slate-50 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-gold-500 selection:text-white">
+  </head>
+  <body class="antialiased selection:bg-gold-300 selection:text-white pb-20 md:pb-0 transition-colors duration-300">
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
